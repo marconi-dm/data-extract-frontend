@@ -26,27 +26,6 @@ body, html {
 }
 
 
-.loading-spinner {
-    display: none;
-    border: 8px solid #1cad17;
-    border-top: 8px solid #3498db;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-}
-
-/* Animação de rotação */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 /* Configurações para o container que alinha a tabela e o gráfico lado a lado */
 #container {
     display: flex;
