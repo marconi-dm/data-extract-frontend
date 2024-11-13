@@ -1,14 +1,21 @@
 // Função para capturar o conteúdo do container e gerar o PNG
 async function generatePNG() {
     try {
+        // Seleciona o botão e esconde-o temporariamente
+        const button = document.querySelector('button[onclick="generatePNG()"]');
+        button.style.display = 'none';
+
         const container = document.getElementById('resultSection'); // Elemento a ser capturado
         const canvas = await html2canvas(container, { 
-            scale: 2, // Aumenta a qualidade da imagem
+            scale: 2,
             scrollX: 0,
             scrollY: 0,
             windowWidth: document.documentElement.offsetWidth,
             windowHeight: document.documentElement.offsetHeight
         });
+
+        // Restaura a exibição do botão após a captura
+        button.style.display = 'block';
 
         const imageData = canvas.toDataURL('image/png');
 

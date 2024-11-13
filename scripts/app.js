@@ -47,9 +47,11 @@ document.getElementById('uploadForm').addEventListener('submit', async (e) => {
             tableBody.appendChild(tr);
         });
 
-        // Exibe os dados no gráfico
+        // Converte os valores de desvio para números para o gráfico
         const labels = data.map(row => row.Filial);
-        const desvios = data.map(row => parseFloat(row.Desvio.replace('R$', '').replace('.', '').replace(',', '.'))); // Converte para números
+        const desvios = data.map(row => parseFloat(
+            row.Desvio.replace('R$', '').replace(/\./g, '').replace(',', '.')
+        )); // Converte para números corretamente
         displayChart(labels, desvios);
 
     } catch (error) {
@@ -63,7 +65,7 @@ function scrollToResultSection() {
     resultSection.scrollIntoView({ behavior: 'smooth' });
 }
 
-// Função para exibir o gráfico
+// Função para exibir o gráfico com formatação de valores em "k"
 function displayChart(labels, desvios) {
     const ctx = document.getElementById('barChart').getContext('2d');
     new Chart(ctx, {
@@ -87,7 +89,8 @@ function displayChart(labels, desvios) {
                     border: { display: false },
                     ticks: {
                         callback: function(value) {
-                            return value >= 1000 ? `${(value / 1000).toFixed(1)}k` : value;
+                            // Formata valores em "k" quando maior que 1000
+                            return value >= 1000 ? `${(value / 1000).toFixed(1)}k` : value.toLocaleString('pt-BR');
                         }
                     }
                 },
@@ -100,7 +103,10 @@ function displayChart(labels, desvios) {
                 datalabels: {
                     anchor: 'end',
                     align: 'end',
-                    formatter: value => `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`,
+                    formatter: value => {
+                        // Formatação de valores nas barras, com "k" quando >= 1000
+                        return value >= 1000 ? `R$ ${(value / 1000).toFixed(1)}k` : `R$ ${value.toLocaleString('pt-BR')}`;
+                    },
                     color: '#000'
                 }
             }
