@@ -14,6 +14,9 @@ document.getElementById('uploadForm').addEventListener('submit', async (e) => {
         return;
     }
 
+    // Exibe o spinner de carregamento
+    document.getElementById('loading').style.display = 'block';
+
     const formData = new FormData();
     formData.append('file', fileInput.files[0]);
 
@@ -54,6 +57,9 @@ document.getElementById('uploadForm').addEventListener('submit', async (e) => {
 
     } catch (error) {
         console.error('Erro ao enviar o arquivo:', error);
+    } finally {
+        // Oculta o spinner de carregamento após o processamento
+        document.getElementById('loading').style.display = 'none';
     }
 });
 
