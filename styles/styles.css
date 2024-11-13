@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+@import url('reset.css');
+
+
+:root {
+    --primary-font: "Kanit", sans-serif;
+}
+
+body, html {
+    box-sizing: border-box;
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    font-family: var(--primary-font);
+}
+
+/* Configuração para exibir o formulário em tela cheia inicialmente */
+#uploadForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* Configurações para o container que alinha a tabela e o gráfico lado a lado */
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Tabela configurada para parecer uma tabela de Excel */
+#tableContainer {
+    flex: 1;
+    min-width: 300px;
+    max-width: 50%;
+    height: 100%;
+    overflow: auto;
+}
+
+#fileInput {
+    display: none;
+}
+
+.custom-upload-btn {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #1cad17;
+    color: white;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.custom-upload-btn:hover{
+    background-color: #7ce678;
+}
+
+.form-container {
+    padding: 2em;
+    border-radius: 20px;
+    background: rgb(240, 245, 237);
+    -webkit-box-shadow: 10px 10px 74px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 74px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 74px 0px rgba(0,0,0,0.75);
+}
+
+/* Ajustes na fonte da tabela */
+table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* Centraliza o valor da coluna "Desvio" */
+td:nth-child(2) {
+    text-align: center;
+}
+
+/* Estilo para as 4 primeiras linhas */
+tbody tr:nth-child(-n+4) {
+    background-color: #ffe6e6;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Configurações do gráfico para ocupar 50% da largura e 100% da altura em telas grandes */
+#chartContainer {
+    flex: 1;
+    min-width: 300px;
+    max-width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos adicionais para a seção de resultados */
+.result {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #f4f4f4;
+    padding: 20px;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.result-visible {
+    display: block;
+    opacity: 1;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Estilos para o botão */
+button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #tableContainer, #chartContainer {
+        max-width: 100%;
+        height: auto;
+    }
+}

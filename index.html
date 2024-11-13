@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Dados de Desvio</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <form id="uploadForm">
+        <div class="form-container">
+            <h1>Envie Arquivo Excel para Processamento</h1>
+            <input type="file" id="fileInput" name="file" accept=".xlsx" />
+            <label for="fileInput" class="custom-upload-btn">Escolher Arquivo</label>
+            <label for="custom-upload-btn" class="file"></label>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+
+    <section class="result" id="resultSection">
+        <button onclick="generatePNG()">Gerar PNG</button>
+
+        <div id="container">
+            <!-- Tabela com nomes das filiais e valores negativos -->
+            <div id="tableContainer">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Filial</th>
+                            <th>Desvio (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="filteredBranchesBody">
+                        <!-- Filiais e valores serão inseridos aqui -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Gráfico de barras -->
+            <div id="chartContainer">
+                <canvas id="barChart" width="400" height="400"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Importa o script externo -->
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/png.js"></script>
+</body>
+</html>
