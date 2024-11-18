@@ -81,6 +81,8 @@ function displayChart(labels, desvios) {
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
             indexAxis: 'y',
             scales: {
                 x: {
