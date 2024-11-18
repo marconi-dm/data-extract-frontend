@@ -95,6 +95,7 @@ function displayChart(labels, desvios) {
                     grid: { display: false },
                     border: { display: false },
                     ticks: {
+                        maxTicksLimit:6,
                         callback: function(value) {
                             // Formata valores em "k" quando maior que 1000
                             return value >= 1000 ? `${(value / 1000).toFixed(1)}k` : value.toLocaleString('pt-BR');
