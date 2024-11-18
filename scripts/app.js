@@ -73,7 +73,7 @@ function displayChart(labels, desvios) {
         data: {
             labels: labels,
             datasets: [{
-                label: 'Desvio (R$)',
+                label: `${fileName}`,
                 data: desvios,
                 backgroundColor: 'rgba(222, 22, 22)',
                 borderColor: 'rgba(255, 99, 132, 1)',
