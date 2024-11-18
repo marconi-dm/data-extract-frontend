@@ -83,6 +83,12 @@ function displayChart(labels, desvios) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    right:0,
+                    left:0
+                }
+            },
             indexAxis: 'y',
             scales: {
                 x: {

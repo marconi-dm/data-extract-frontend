@@ -122,6 +122,10 @@ tr:nth-child(even) {
     justify-content: center;
 }
 
+canvas {
+    display: block;
+}
+
 /* Estilos adicionais para a seção de resultados */
 .result {
     display: none;
