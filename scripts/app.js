@@ -109,7 +109,7 @@ function displayChart(labels, desvios) {
             plugins: {
                 title: {
                     display:true,
-                    text: fileName,
+                    text: 'Análise de Perdas',
                     font: {
                         size:16
                     }, 
