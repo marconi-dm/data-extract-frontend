@@ -107,6 +107,17 @@ function displayChart(labels, desvios) {
                 }
             },
             plugins: {
+                title: {
+                    display:true,
+                    text: fileName,
+                    font: {
+                        size:16
+                    }, 
+                    padding: {
+                        top:10,
+                        bottom:10
+                    }
+                },
                 datalabels: {
                     anchor: 'end',
                     align: 'end',
