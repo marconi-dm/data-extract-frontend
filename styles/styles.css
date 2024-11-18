@@ -122,12 +122,6 @@ tr:nth-child(even) {
     justify-content: center;
 }
 
-canvas {
-    width: 100% !important;
-    height: 100%;
-    display: block;
-}
-
 /* Estilos adicionais para a seção de resultados */
 .result {
     display: none;

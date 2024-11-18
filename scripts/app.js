@@ -85,8 +85,7 @@ function displayChart(labels, desvios) {
             maintainAspectRatio: false,
             layout: {
                 padding: {
-                    right:0,
-                    left:0
+                    right:20,
                 }
             },
             indexAxis: 'y',
