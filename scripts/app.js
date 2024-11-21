@@ -120,13 +120,13 @@ function displayChart(labels, desvios) {
                     }
                 },
                 datalabels: {
-                    anchor: 'center',
-                    align: 'center',
+                    anchor: 'end',
+                    align: 'end',
                     formatter: value => {
                         // Formatação de valores nas barras, com "k" quando >= 1000
                         return value >= 1000 ? `R$ ${(value / 1000).toFixed(1)}k` : `R$ ${value.toLocaleString('pt-BR')}`;
                     },
-                    color: '#fff'
+                    color: '#000'
                 }
             }
         },
